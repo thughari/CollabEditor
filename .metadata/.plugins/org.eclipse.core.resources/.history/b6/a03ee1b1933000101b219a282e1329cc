@@ -1,0 +1,5 @@
+package com.thughari.collabeditor.config;
+
+public class WebSocketConfig {
+
+}
