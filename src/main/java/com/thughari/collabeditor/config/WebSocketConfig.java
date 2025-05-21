@@ -18,7 +18,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(editorWebSocketHandler, "/ws/editor/*").setAllowedOrigins("*");
+		registry.addHandler(editorWebSocketHandler, "/ws/editor/*").setAllowedOrigins("http://localhost:4200", "https://thughari.github.io");
 		
 	}
 	
