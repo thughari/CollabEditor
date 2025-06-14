@@ -7,9 +7,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to production
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Trigger Render Deployment
+        id: deploy
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
           wait-for-success: true
+
+      - name: Show deployment output
+        run: |
+          echo "Deployment status: ${{ steps.deploy.outputs.status }}"
+          echo "Deployment URL: https://render.com/deploy/${{ secrets.MY_RENDER_SERVICE_ID }}"
